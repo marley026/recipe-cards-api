@@ -118,5 +118,10 @@ def home():
 
 @app.get("/get/{url:path}")
 def get(url):
-  content = get_recipe_content(url, 'recipe')
-  return content
+    if "http" not in url:
+        url = "https://" + url
+    if "https://" not in url:
+        url = url.replace("https:/", "https://")
+        
+    content = get_recipe_content(url, 'recipe')
+    return content
