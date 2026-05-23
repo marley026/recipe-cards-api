@@ -54,6 +54,7 @@ def format_json(json, url, site):
     """
 
     final['dateSaved'] = datetime.datetime.now(pytz.utc).timestamp()
+    final['status'] = 200
 
     return sanitize_json(final)
 
